@@ -1,0 +1,26 @@
+<div class="container tableContainer">
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8 fullWidth">
+        <ng-container matColumnDef="name">
+            <th mat-header-cell *matHeaderCellDef>Name</th>
+            <td mat-cell *matCellDef="let item">{{ item.name }}</td>
+        </ng-container>
+        <ng-container matColumnDef="deviceTypeId">
+            <th mat-header-cell *matHeaderCellDef>DeviceTypeId</th>
+            <td mat-cell *matCellDef="let item">{{ item.deviceTypeId }}</td>
+        </ng-container>
+        <ng-container matColumnDef="failsafe">
+            <th mat-header-cell *matHeaderCellDef>Failsafe</th>
+            <td mat-cell *matCellDef="let item">
+                <span>{{ item.failsafe }}</span>
+                <button mat-icon-button color="accent" class="icons" [routerLink]="['/devices', item.id]">
+                    <mat-icon>read_more</mat-icon>
+                </button>
+                <button mat-icon-button color="accent" class="icons" (click)="deleteDevice(item.id)">
+                    <mat-icon>delete</mat-icon>
+                </button>
+            </td>
+        </ng-container>
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+</div>

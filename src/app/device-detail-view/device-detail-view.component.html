@@ -1,0 +1,55 @@
+<div class="tableContainer" *ngIf="isDeviceInfosNotEmpty()">
+    <table mat-table [dataSource]="deviceInfos" class="mat-elevation-z8 fullWidth">
+        <ng-container matColumnDef="name">
+            <th mat-header-cell *matHeaderCellDef>Name</th>
+            <td mat-cell *matCellDef="let data">{{ data.name }}</td>
+        </ng-container>
+        <ng-container matColumnDef="deviceTypeId">
+            <th mat-header-cell *matHeaderCellDef>DeviceTypeId</th>
+            <td mat-cell *matCellDef="let data">{{ data.deviceTypeId }}</td>
+        </ng-container>
+        <ng-container matColumnDef="failsafe">
+            <th mat-header-cell *matHeaderCellDef>Failsafe</th>
+            <td mat-cell *matCellDef="let data">{{ data.failsafe }}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="tempMin">
+            <th mat-header-cell *matHeaderCellDef>TempMin</th>
+            <td mat-cell *matCellDef="let data">{{ data.tempMin }}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="tempMax">
+            <th mat-header-cell *matHeaderCellDef>TempMax</th>
+            <td mat-cell *matCellDef="let data">{{ data.tempMax }}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="installationPosition">
+            <th mat-header-cell *matHeaderCellDef>InstallationPosition</th>
+            <td mat-cell *matCellDef="let data">{{ data.installationPosition }}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="insertInto19InchCabinet">
+            <th mat-header-cell *matHeaderCellDef>InsertInto19InchCabinet</th>
+            <td mat-cell *matCellDef="let data">{{ data.insertInto19InchCabinet }}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="terminalElement">
+            <th mat-header-cell *matHeaderCellDef>TerminalElement</th>
+            <td mat-cell *matCellDef="let data">{{ data.terminalElement }}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="advancedEnvironmentalConditions">
+            <th mat-header-cell *matHeaderCellDef>AdvancedEnvironmentalConditions</th>
+            <td mat-cell *matCellDef="let data">{{ data.advancedEnvironmentalConditions }}</td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns">
+        </tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;">
+        </tr>
+    </table>
+
+    <button class="mt-5" mat-raised-button color="accent" [routerLink]="['/devices']" (click)="navigateBack()">Go
+        Back
+    </button>
+</div>
